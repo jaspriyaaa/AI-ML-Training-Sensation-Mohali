@@ -508,157 +508,271 @@ class
 
 ---
 
-# 🧪 Practical Exercise 1
 
-### Student Result Card
+# 📝 Assignment: Student Result Card Generator
+
+## 📌 Problem Statement
+
+Write a Python program that takes a student's name and marks as input and prints a formatted result card showing **Pass/Fail** status.
+
+---
+
+## 💻 Solution
 
 ```python
 name = input("Enter Student Name: ")
-marks = float(input("Enter Marks: "))
-```
+marks = float(input("Enter Marks Obtained: "))
 
-Check:
-
-```python
 if marks >= 33:
     status = "Pass"
 else:
     status = "Fail"
+
+print("\n" + "=" * 30)
+print("         RESULT CARD")
+print("=" * 30)
+print(f"Student Name : {name}")
+print(f"Marks        : {marks} / 100")
+print(f"Status       : {status}")
+print("=" * 30)
 ```
 
-Output:
+### 📤 Sample Output
 
 ```text
-====================
-RESULT CARD
-====================
-Name : John
-Marks: 85
-Status: Pass
+Enter Student Name: Jaspriya
+Enter Marks Obtained: 85
+
+==============================
+         RESULT CARD
+==============================
+Student Name : Jaspriya
+Marks        : 85.0 / 100
+Status       : Pass
+==============================
 ```
+
+### 🎓 Learning Outcome
+
+- Taking user input
+- Conditional statements (`if-else`)
+- String formatting using f-strings
+- Building a real-world mini project
 
 ---
 
-# 🧪 Practical Exercise 2
+# 🧪 Exercise 1: Identity vs Equality
 
-Identity vs Equality
+## 📌 Question
 
 ```python
-a = [1,2,3]
+a = [1, 2, 3]
 b = a
-c = [1,2,3]
+c = [1, 2, 3]
+
+print(a is b)
+print(a == c)
+print(a is c)
 ```
 
-```python
-a is b
-```
+### 🔮 Prediction
 
-Output:
-
-```text
-True
-```
-
-```python
-a == c
-```
-
-Output:
-
-```text
-True
-```
-
-```python
-a is c
-```
-
-Output:
-
-```text
-False
-```
+| Expression | Expected Output |
+|------------|----------------|
+| `a is b` | True |
+| `a == c` | True |
+| `a is c` | False |
 
 ---
 
-# 🧪 Practical Exercise 3
-
-Tuple Modification
-
-Since tuples are immutable:
+## 💻 Solution
 
 ```python
-fruits = ("apple","pear","cherry")
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print("a is b:", a is b)
+print("a == c:", a == c)
+print("a is c:", a is c)
 ```
 
-Convert:
+### 📤 Output
 
-```python
-fruits = list(fruits)
+```text
+a is b: True
+a == c: True
+a is c: False
 ```
 
-Modify:
+### 🎓 Learning Outcome
+
+- `is` checks whether two variables point to the same object.
+- `==` checks whether two objects contain the same value.
+
+---
+
+# 🧪 Exercise 2: The Immutability Trap
+
+## 📌 Question
+
+Try modifying a tuple:
 
 ```python
+fruits = ("apple", "pear", "cherry")
 fruits[1] = "banana"
 ```
 
-Convert back:
+### ⚠️ Problem
 
-```python
-fruits = tuple(fruits)
+```text
+TypeError: 'tuple' object does not support item assignment
 ```
 
 ---
 
-# 🧪 Practical Exercise 4
+## 💻 Solution
 
-AI Hyperparameters Dictionary
+```python
+fruits = ("apple", "pear", "cherry")
+
+fruits_list = list(fruits)
+fruits_list[1] = "banana"
+
+fruits = tuple(fruits_list)
+
+print("Modified tuple:", fruits)
+```
+
+### 📤 Output
+
+```text
+Modified tuple: ('apple', 'banana', 'cherry')
+```
+
+### 🎓 Learning Outcome
+
+- Tuples are immutable.
+- Convert tuple → list → modify → convert back to tuple.
+
+---
+
+# 🧪 Exercise 3: AI Hyperparameters Dictionary
+
+## 📌 Question
+
+Create a dictionary containing:
+
+| Parameter | Value |
+|------------|--------|
+| Learning Rate | 0.001 |
+| Batch Size | 32 |
+| Optimizer | Adam |
+| Epochs | 10 |
+| Early Stopping | True |
+
+Then update the learning rate to **0.005**.
+
+---
+
+## 💻 Solution
 
 ```python
 hyperparameters = {
-    "learning_rate":0.001,
-    "batch_size":32,
-    "optimizer":"Adam",
-    "epochs":10
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "optimizer": "Adam",
+    "epochs": 10,
+    "early_stopping": True
+}
+
+print("LR:", hyperparameters["learning_rate"])
+print("Batch Size:", hyperparameters["batch_size"])
+print("Optimizer:", hyperparameters["optimizer"])
+print("Epochs:", hyperparameters["epochs"])
+print("Early stopping:", hyperparameters["early_stopping"])
+
+hyperparameters["learning_rate"] = 0.005
+
+print("\nUpdated dictionary:", hyperparameters)
+```
+
+### 📤 Output
+
+```text
+LR: 0.001
+Batch Size: 32
+Optimizer: Adam
+Epochs: 10
+Early stopping: True
+
+Updated dictionary:
+{
+ 'learning_rate': 0.005,
+ 'batch_size': 32,
+ 'optimizer': 'Adam',
+ 'epochs': 10,
+ 'early_stopping': True
 }
 ```
 
-Updated Learning Rate:
+### 🎓 Learning Outcome
 
-```python
-hyperparameters["learning_rate"] = 0.005
-```
+- Dictionaries store information using key-value pairs.
+- Dictionaries are mutable and can be updated easily.
 
 ---
 
-# 🧪 Practical Exercise 5
+# 🧪 Exercise 4: Explicit Cast & Set Magic
 
-Unique User Roles
+## 📌 Question
 
-```python
-roles = [
-"admin",
-"user",
-"user",
-"editor",
-"admin"
-]
-```
-
-Using:
+Given:
 
 ```python
-set(roles)
+roles = ["admin", "user", "user", "editor", "admin", "user", "viewer"]
 ```
 
-Output:
+Find:
+
+1. Total user accounts
+2. Unique roles
+3. Count of unique roles
+
+---
+
+## 💻 Solution
+
+```python
+roles = ["admin", "user", "user", "editor", "admin", "user", "viewer"]
+
+print("Total user accounts:", len(roles))
+
+unique_roles = set(roles)
+
+print("Unique roles in the system:", unique_roles)
+
+print("Count of unique roles:", len(unique_roles))
+```
+
+### 📤 Output
 
 ```text
-{'admin','editor','user'}
+Total user accounts: 7
+
+Unique roles in the system:
+{'admin', 'editor', 'user', 'viewer'}
+
+Count of unique roles: 4
 ```
 
+### 🎓 Learning Outcome
+
+- Sets automatically remove duplicate values.
+- Useful for finding unique elements in a collection.
+
 ---
+
 
 # 📈 Key Takeaways
 
@@ -682,4 +796,4 @@ Output:
 
 Today I built a strong foundation in Python programming by understanding variables, memory references, data types, collections, mutability, and type conversion. These concepts form the backbone of Data Science, Artificial Intelligence, Machine Learning, and Software Development.
 
-⭐ Looking forward to Day 2!
+
