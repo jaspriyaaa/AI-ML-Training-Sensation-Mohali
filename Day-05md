@@ -1,0 +1,566 @@
+# 🚀 Day 5 Training Report – NumPy Fundamentals
+
+## 📖 Introduction
+
+NumPy (Numerical Python) is one of the most important Python libraries used in Data Science, Artificial Intelligence, Machine Learning, Scientific Computing, and Data Analysis. It provides support for powerful multidimensional arrays and mathematical functions that make numerical computations faster and more efficient than traditional Python lists.
+
+During this training session, I explored the core concepts of NumPy, including array creation, indexing, slicing, broadcasting, vectorization, and performance optimization.
+
+---
+
+# 🎯 Learning Objectives
+
+By the end of this session, I was able to:
+
+* Understand the importance of NumPy in Python programming.
+* Create and manipulate NumPy arrays.
+* Access and modify data using indexing and slicing.
+* Filter data using Boolean masking.
+* Understand the difference between views and copies.
+* Apply broadcasting techniques.
+* Perform vectorized operations.
+* Compare NumPy performance with traditional Python loops.
+* Solve practical exercises using NumPy.
+
+---
+
+# 📚 Topics Covered
+
+| S.No | Topic                    |
+| ---- | ------------------------ |
+| 1    | Introduction to NumPy    |
+| 2    | Creating NumPy Arrays    |
+| 3    | Data Types in NumPy      |
+| 4    | Array Creation Functions |
+| 5    | Array Attributes         |
+| 6    | Indexing                 |
+| 7    | Boolean Indexing         |
+| 8    | Slicing                  |
+| 9    | Views vs Copies          |
+| 10   | Broadcasting             |
+| 11   | Vectorization            |
+| 12   | Performance Comparison   |
+| 13   | Practice Exercises       |
+
+---
+
+# 1️⃣ Introduction to NumPy
+
+NumPy stands for **Numerical Python** and provides an efficient way to store and process large amounts of numerical data.
+
+### Why NumPy?
+
+| Python Lists                    | NumPy Arrays                     |
+| ------------------------------- | -------------------------------- |
+| Slower                          | Faster                           |
+| More Memory Usage               | Less Memory Usage                |
+| Limited Mathematical Operations | Advanced Mathematical Operations |
+| Loop-Based Computations         | Vectorized Computations          |
+
+### Example
+
+```python
+import numpy as np
+
+arr = np.array([10, 20, 30, 40])
+print(arr)
+```
+
+### Output
+
+```python
+[10 20 30 40]
+```
+
+---
+
+# 2️⃣ Creating NumPy Arrays
+
+NumPy arrays can be created from Python lists.
+
+### One-Dimensional Array
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+
+print(arr)
+```
+
+### Output
+
+```python
+[1 2 3 4 5]
+```
+
+---
+
+### Two-Dimensional Array
+
+```python
+matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+print(matrix)
+```
+
+### Output
+
+```python
+[[1 2 3]
+ [4 5 6]]
+```
+
+---
+
+# 3️⃣ Data Types (dtype)
+
+Each NumPy array has a specific data type.
+
+### Example
+
+```python
+arr = np.array([1, 2, 3])
+
+print(arr.dtype)
+```
+
+### Output
+
+```python
+int64
+```
+
+### Common Data Types
+
+| Data Type | Description            |
+| --------- | ---------------------- |
+| int32     | Integer                |
+| int64     | Large Integer          |
+| float32   | Decimal Number         |
+| float64   | Double Precision Float |
+| bool      | Boolean Values         |
+
+---
+
+# 4️⃣ NumPy Array Creation Functions
+
+NumPy provides several built-in functions for generating arrays.
+
+## Zeros Array
+
+```python
+np.zeros((2,3))
+```
+
+### Output
+
+```python
+[[0. 0. 0.]
+ [0. 0. 0.]]
+```
+
+---
+
+## Ones Array
+
+```python
+np.ones((2,3))
+```
+
+### Output
+
+```python
+[[1. 1. 1.]
+ [1. 1. 1.]]
+```
+
+---
+
+## arange()
+
+```python
+np.arange(0,10,2)
+```
+
+### Output
+
+```python
+[0 2 4 6 8]
+```
+
+---
+
+## linspace()
+
+```python
+np.linspace(0,1,5)
+```
+
+### Output
+
+```python
+[0.   0.25 0.50 0.75 1.00]
+```
+
+---
+
+## Identity Matrix
+
+```python
+np.eye(3)
+```
+
+### Output
+
+```python
+[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+```
+
+---
+
+# 5️⃣ Array Attributes
+
+Array attributes provide useful information about the structure of an array.
+
+```python
+arr = np.array([[1,2,3],[4,5,6]])
+```
+
+| Attribute | Description          |
+| --------- | -------------------- |
+| ndim      | Number of dimensions |
+| shape     | Shape of array       |
+| size      | Total elements       |
+| dtype     | Data type            |
+| itemsize  | Size of each element |
+
+### Example
+
+```python
+print(arr.ndim)
+print(arr.shape)
+print(arr.size)
+```
+
+### Output
+
+```python
+2
+(2,3)
+6
+```
+
+---
+
+# 6️⃣ Indexing
+
+Indexing is used to access specific elements.
+
+### Example
+
+```python
+arr = np.array([10,20,30,40])
+
+print(arr[2])
+```
+
+### Output
+
+```python
+30
+```
+
+---
+
+### 2D Indexing
+
+```python
+matrix = np.array([
+    [1,2,3],
+    [4,5,6]
+])
+
+print(matrix[1,2])
+```
+
+### Output
+
+```python
+6
+```
+
+---
+
+# 7️⃣ Boolean Indexing
+
+Boolean indexing helps filter data based on conditions.
+
+### Example
+
+```python
+arr = np.array([10,20,30,40,50])
+
+print(arr[arr > 25])
+```
+
+### Output
+
+```python
+[30 40 50]
+```
+
+### Applications
+
+* Data Cleaning
+* Filtering Records
+* Removing Outliers
+* Feature Selection
+
+---
+
+# 8️⃣ Slicing
+
+Slicing extracts a subset of data.
+
+### Example
+
+```python
+arr = np.array([10,20,30,40,50])
+
+print(arr[1:4])
+```
+
+### Output
+
+```python
+[20 30 40]
+```
+
+---
+
+# 9️⃣ Views vs Copies
+
+Understanding memory behavior is crucial in NumPy.
+
+### View
+
+```python
+arr = np.array([1,2,3,4])
+
+view = arr.view()
+
+view[0] = 100
+
+print(arr)
+```
+
+### Output
+
+```python
+[100   2   3   4]
+```
+
+Changes in the view affect the original array.
+
+---
+
+### Copy
+
+```python
+copy_arr = arr.copy()
+
+copy_arr[0] = 500
+
+print(arr)
+```
+
+### Output
+
+```python
+[100   2   3   4]
+```
+
+Changes in the copy do not affect the original array.
+
+---
+
+# 🔟 Broadcasting
+
+Broadcasting allows operations on arrays of different shapes.
+
+### Example
+
+```python
+arr = np.array([1,2,3])
+
+result = arr + 10
+
+print(result)
+```
+
+### Output
+
+```python
+[11 12 13]
+```
+
+### Benefits
+
+* Faster Computation
+* Cleaner Code
+* Less Memory Usage
+
+---
+
+# 1️⃣1️⃣ Vectorization
+
+Vectorization eliminates explicit loops.
+
+### Example
+
+```python
+arr = np.array([1,2,3,4])
+
+print(arr * 2)
+```
+
+### Output
+
+```python
+[2 4 6 8]
+```
+
+---
+
+# 1️⃣2️⃣ Performance Comparison
+
+## Traditional Python Loop
+
+```python
+numbers = list(range(100000))
+
+squared = []
+
+for i in numbers:
+    squared.append(i*i)
+```
+
+---
+
+## NumPy Vectorization
+
+```python
+numbers = np.arange(100000)
+
+squared = numbers * numbers
+```
+
+### Observation
+
+NumPy performs operations significantly faster because calculations are implemented in optimized C code.
+
+---
+
+# 📝 Practice Exercise 1
+
+### Question
+
+Create a NumPy array containing numbers from 1 to 10.
+
+### Solution
+
+```python
+import numpy as np
+
+arr = np.arange(1,11)
+
+print(arr)
+```
+
+### Output
+
+```python
+[ 1  2  3  4  5  6  7  8  9 10]
+```
+
+---
+
+# 📝 Practice Exercise 2
+
+### Question
+
+Find all values greater than 50.
+
+### Solution
+
+```python
+arr = np.array([25,60,75,40,90])
+
+print(arr[arr > 50])
+```
+
+### Output
+
+```python
+[60 75 90]
+```
+
+---
+
+# 📝 Practice Exercise 3
+
+### Question
+
+Create a 3×3 identity matrix.
+
+### Solution
+
+```python
+print(np.eye(3))
+```
+
+### Output
+
+```python
+[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+```
+
+---
+
+# 🎓 Key Learning Outcomes
+
+After completing this training session, I gained practical experience in:
+
+✅ Creating NumPy arrays
+
+✅ Understanding array dimensions and attributes
+
+✅ Working with indexing and slicing
+
+✅ Applying Boolean filtering
+
+✅ Understanding views and copies
+
+✅ Implementing broadcasting
+
+✅ Using vectorized operations
+
+✅ Optimizing performance with NumPy
+
+✅ Solving practical numerical computing problems
+
+---
+
+# 📌 Conclusion
+
+This training session provided a strong foundation in NumPy fundamentals. I learned how NumPy simplifies numerical computation, improves execution speed, and provides powerful tools for data manipulation. The concepts covered during this session are essential for advanced topics in Data Science, Machine Learning, Deep Learning, and Artificial Intelligence.
+
+NumPy serves as the backbone of many Python-based data science libraries and is a crucial skill for anyone pursuing analytics or AI-related fields.
