@@ -509,7 +509,7 @@ class
 ---
 
 
-# 📝 Assignment: Student Result Card Generator
+# 📝 Assignment
 
 ## 📌 Problem Statement
 
