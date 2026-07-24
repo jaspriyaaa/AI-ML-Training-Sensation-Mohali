@@ -21,7 +21,7 @@ In this session, I learned how Random Forest works, trained a Random Forest clas
 
 ---
 
-# 🌳 Section 6: Ensemble Methods — Random Forests
+# 🌳 Section 1: Ensemble Methods — Random Forests
 
 Random Forest is an **ensemble learning algorithm** that builds multiple Decision Trees instead of relying on a single tree. Each tree is trained independently, and the final prediction is obtained by combining the predictions of all trees. This approach reduces the chances of overfitting and improves the model's ability to generalize to new data.
 
@@ -65,7 +65,7 @@ This ensemble approach generally produces more accurate and stable predictions t
 
 ---
 
-# 🌲 Section 7: Fitting a Random Forest Classifier
+# 🌲 Section 2: Fitting a Random Forest Classifier
 
 The notebook trains a Random Forest model using the **RandomForestClassifier** from Scikit-learn.
 
@@ -117,7 +117,7 @@ The notebook demonstrates that Random Forest achieves strong performance while m
 
 ---
 
-# 📈 Section 8: Feature Importance — Trees vs. Logistic Regression
+# 📈 Section 3: Feature Importance — Trees vs. Logistic Regression
 
 One of the most powerful features of Random Forest is its ability to estimate **Feature Importance** using **Gini Importance (Mean Decrease in Impurity)**.
 
